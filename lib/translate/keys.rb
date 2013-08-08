@@ -34,7 +34,8 @@ class Translate::Keys
           break
         end
       end
-    end    
+    end
+    all_keys    
   end
 
   def duplicate_keys
