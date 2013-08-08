@@ -5,8 +5,11 @@ class Translate::Storage
     self.locale = locale.to_sym
   end
   
-  def write_to_file
-    Translate::File.new(file_path).write(keys)
+  def write_to_file(remove_pattern = nil)
+    keys_to_write = keys
+    keys_to_write.delete_if { |x| x =~ remove_pattern } if remove_pattern
+    
+    Translate::File.new(file_path).write(keys_to_write)
   end
   
   def self.file_paths(locale)

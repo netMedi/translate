@@ -24,7 +24,7 @@ class TranslateController < ActionController::Base
   def translate
     processed_parameters = process_array_parameters(params[:key])
     I18n.backend.store_translations(@to_locale, Translate::Keys.to_deep_hash(processed_parameters))
-    Translate::Storage.new(@to_locale).write_to_file
+    Translate::Storage.new(@to_locale).write_to_file(/faker|i18n\.plural/)
     Translate::Log.new(@from_locale, @to_locale, params[:key].keys).write_to_file
     force_init_translations # Force reload from YAML file
     flash[:notice] = "Translations stored"
