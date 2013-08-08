@@ -193,7 +193,8 @@ class Translate::Keys
   end
 
   def files_to_scan
-    Dir.glob(File.join(Translate::Storage.root_dir, "{app,config,lib}", "**","*.{rb,erb,rhtml}")) +
-      Dir.glob(File.join(Translate::Storage.root_dir, "public", "javascripts", "**","*.js"))
+    #Dir.glob(File.join(Translate::Storage.root_dir, "{app,config,lib}", "**","*.{rb,erb,rhtml}")) +
+      #Dir.glob(File.join(Translate::Storage.root_dir, "public", "javascripts", "**","*.js"))
+    Dir.glob(File.join(Translate::Storage.root_dir, "config", "locales", "**", "*.yml")) + Dir.glob(File.join(Translate::Storage.root_dir, "config", "locales", "*.yml"))
   end
 end
