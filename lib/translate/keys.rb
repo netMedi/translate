@@ -23,7 +23,7 @@ class Translate::Keys
 
   def i18n_keys(locale)
     # The keys matching the ignore_pattern regexp will be ignored.
-    ignore_pattern = /faker|i18n.plural/
+    ignore_pattern = /faker|i18n\.plural/
 
     I18n.backend.send(:init_translations) unless I18n.backend.initialized?
     all_keys=Translate::Keys.to_shallow_hash(I18n.backend.send(:translations)[locale.to_sym]).keys.sort
